@@ -2,8 +2,6 @@
 
 This project is a complete, professional demonstration of API documentation for a fictional Thai restaurant, "The Siam Spice." It includes a full API specification written in OpenAPI 3.0 and a live, interactive front-end demo to showcase how the API would be used.
 
-This project was built to demonstrate core technical writing skills, including API documentation, user-focused design, and front-end implementation for interactive examples.
-
 ## Project Components
 
 This repository contains two main parts:
@@ -32,5 +30,3 @@ To prove the documentation is usable and clear, this project includes a simple f
 This demonstrates an understanding of the end-user (developer) experience and the ability to create practical, hands-on examples.
 
 ---
-
-This project showcases the ability to understand a product's requirements, design a logical API structure, document it to industry standards, and build a functional example of its use.
