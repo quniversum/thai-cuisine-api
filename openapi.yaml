@@ -1,0 +1,95 @@
+openapi: 3.0.3
+info:
+  title: The Siam Spice API
+  description: The official API for The Siam Spice restaurant to manage menu items for delivery apps.
+  version: 1.0.0
+servers:
+  - url: https://api.siamspice.com/v1
+paths:
+  /dishes:
+    get:
+      summary: Get All Menu Dishes
+      description: Retrieves a complete list of all menu dishes available at the restaurant.
+      tags:
+        - Dishes
+      responses:
+        '200':
+          description: A list of all menu dishes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "pad-thai"
+                    name:
+                      type: string
+                      example: "Pad Thai"
+                    description:
+                      type: string
+                      example: "The classic stir-fried rice noodle dish with shrimp, tofu, and peanuts."
+                    price:
+                      type: number
+                      format: float
+                      example: 14.50
+                    spicinessLevel:
+                      type: integer
+                      description: "Scale of 1 (mild) to 5 (very spicy)."
+                      example: 2
+                    isVegetarian:
+                      type: boolean
+                      example: false
+                    imageUrl:
+                      type: string
+                      format: uri
+                      example: "https://api.siamspice.com/images/pad-thai.jpg"
+  /dishes/{dishId}:
+    get:
+      summary: Get a Single Dish
+      description: Retrieves the complete details for a single menu dish by its unique ID.
+      tags:
+        - Dishes
+      parameters:
+        - name: dishId
+          in: path
+          required: true
+          description: The unique ID of the dish to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The details for the requested menu dish.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "pad-thai"
+                  name:
+                    type: string
+                    example: "Pad Thai"
+                  description:
+                    type: string
+                    example: "The classic stir-fried rice noodle dish with shrimp, tofu, and peanuts."
+                  price:
+                    type: number
+                    format: float
+                    example: 14.50
+                  spicinessLevel:
+                    type: integer
+                    description: "Scale of 1 (mild) to 5 (very spicy)."
+                    example: 2
+                  isVegetarian:
+                    type: boolean
+                    example: false
+                  imageUrl:
+                    type: string
+                    format: uri
+                    example: "https://api.siamspice.com/images/pad-thai.jpg"
+        '404':
+          description: The dish with the specified ID was not found.
